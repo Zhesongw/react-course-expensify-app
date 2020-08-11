@@ -10,9 +10,11 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
+store.subscribe( () => {
+    console.log(store.getState())
+})
 const waterBill = store.dispatch(addExpense({description:'Water Bill', note:"Water Bill", amount: 5000, createdAt:1000}));
 const gasBill = store.dispatch(addExpense({description:'Gas Bill', note:"Gas Bill", amount: 4000, createdAt:1100}));
-
 
 const jsx = (
     <Provider store = {store}>
